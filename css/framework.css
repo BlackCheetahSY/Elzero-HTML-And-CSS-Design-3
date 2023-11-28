@@ -1,0 +1,95 @@
+/* [Section Title]=> */
+.section-title {
+  --motion: 400ms;
+  cursor: default;
+  user-select: none;
+  margin: 0 auto 70px;
+  border: 2px solid;
+  padding: 10px 20px;
+  font-size: 2rem;
+  width: fit-content;
+  position: relative;
+  z-index: 0;
+  transition-property: color, border-color;
+  transition-delay: var(--motion);
+  transition-duration: var(--motion);
+}
+
+.section-title:hover {
+  color: white;
+}
+
+.section-title::before,
+.section-title::after {
+  --size: 12px;
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  z-index: -1;
+  transition-property: left, right, width, height, border-radius;
+  transition-delay: 0ms, 0ms, calc(var(--motion) / 2), calc(var(--motion) / 2), calc(var(--motion) / 2);
+  transition-duration: var(--motion);
+}
+
+.section-title::before {
+  left: -30px;
+}
+
+.section-title::after {
+  right: -30px;
+}
+
+.section-title:hover::before,
+.section-title:hover::after {
+  width: 51%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.section-title:hover::before {
+  left: 0;
+}
+
+.section-title:hover::after {
+  right: 0;
+}
+/* <=[Section Title] */
+
+
+
+
+
+/* [Section Gap]=> */
+.sec-gap {
+  --gap: 80px;
+  padding-top: var(--gap);
+  padding-bottom: var(--gap);
+}
+/* <=[Section Gap] */
+
+
+
+
+
+/* [Dots Background]=> */
+.back-dots {
+  background-repeat: no-repeat;
+  background-image:
+    url(../images/dots.png),
+    url(../images/dots.png);
+  background-position:
+    top 200px right,
+    bottom 200px left;
+}
+
+@media (max-width: 767px) {
+  .back-dots {
+    background-image: none;
+  }
+}
+/* <=[Dots Background] */
